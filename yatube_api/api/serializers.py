@@ -10,7 +10,7 @@ class GroupSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.SerializerMethodField()
+    author = serializers.StringRelatedField()
 
     class Meta:
         model = Post
@@ -21,7 +21,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField(read_only=True)
+    author = serializers.StringRelatedField()
     post = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
