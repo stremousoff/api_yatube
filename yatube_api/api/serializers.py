@@ -16,9 +16,6 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ('id', 'text', 'author', 'image', 'group', 'pub_date')
 
-    def get_author(self, obj):
-        return obj.author.username
-
 
 class CommentSerializer(serializers.ModelSerializer):
     author = serializers.StringRelatedField()
@@ -27,6 +24,3 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ('id', 'author', 'post', 'text', 'created')
-
-    def get_post(self, obj):
-        return obj.post.id
