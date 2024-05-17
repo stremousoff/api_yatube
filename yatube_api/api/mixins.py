@@ -3,6 +3,8 @@ from rest_framework.exceptions import PermissionDenied
 
 
 class OnlyAuthorModificationMixin(viewsets.ModelViewSet):
+    """Только автор объекта может вносить изменения."""
+
     def perform_destroy(self, instance):
         if instance.author != self.request.user:
             raise PermissionDenied('Удаление чужого контента запрещено!')
