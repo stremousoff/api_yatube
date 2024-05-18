@@ -1,0 +1,1 @@
+LENGHT_TEXT = 30
